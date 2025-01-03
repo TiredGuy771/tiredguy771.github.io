@@ -38,15 +38,16 @@
     </div>
 
     <script>
-   // This script checks the variable 'MaintenanceIsTrue' upon loading the page
-let MaintenanceIsTrue = true; // Change this to true or false to test the redirection
+
+let MaintenanceIsTrue = true;
 
 window.onload = function() {
     if (MaintenanceIsTrue) {
-        // If the variable is true, redirect to the main page
+       // If the variable is true, redirect to the maintenance page
         window.location.href = "/maintenance/index.html";
     } else {
-        // If the variable is false, redirect to the maintenance page
+       
+        // If the variable is false, redirect to the main page
         window.location.href = "/Portfolio/index.html";
     }
 };
