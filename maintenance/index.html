@@ -82,15 +82,23 @@
             const bypassMessage = document.getElementById('bypassMessage');
             
         
-            if (bypassCode === '4896') {
-                bypassMessage.textContent = 'Access granted. Redirecting...';
-                bypassMessage.style.color = 'green';
-                
-                setTimeout(() => window.location.href = 'https://tiredguy771.github.io/Portfolio', 2000);
-            } else {
-                bypassMessage.textContent = 'Invalid bypass code. Please try again.';
-                bypassMessage.style.color = 'red';
-            }
+if (bypassCode === '4896') {
+    bypassMessage.textContent = 'Access granted. Redirecting to site...';
+    bypassMessage.style.color = 'green';
+    setTimeout(() => window.location.href = 'https://tiredguy771.github.io/Portfolio', 2000);
+} else if (bypassCode === '2885') {
+    bypassMessage.textContent = 'Access granted. Redirecting to site...';
+    bypassMessage.style.color = 'green';
+    setTimeout(() => window.location.href = '/back-end-files', 2000);
+} else if (bypassCode === '5172') {
+    bypassMessage.textContent = 'Access granted. Redirecting to site...';
+    bypassMessage.style.color = 'green';
+    setTimeout(() => window.location.href = 'https://google.com', 2000);
+} else {
+    bypassMessage.textContent = 'Access denied. Invalid bypass code.';
+    bypassMessage.style.color = 'red';
+    setTimeout(() => window.location.href = 'https://google.com', 4000);
+}
         });
     </script>
 </body>
