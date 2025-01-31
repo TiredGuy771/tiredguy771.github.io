@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            padding: 0;
+            margin: 0;
+        }
+        .link-item a {
+            display: block;
+            background-color: #f8f8f8;
+            color: #333;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .link-item a:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Links</h1>
+        <div class="links-grid">
+            <div class="link-item"><a href="https://tiredguy771.github.io/games/1">1</a></div>
+            <div class="link-item"><a href="https://tiredguy771.github.io/games/1v1lol">1v1lol</a></div>
+            <div class="link-item"><a href="https://tiredguy771.github.io/games/1v1space">1v1space</a></div>
+            <div class="link-item"><a href="#section4">Section 4</a></div>
+            <div class="link-item"><a href="#section5">Section 5</a></div>
+        </div>
+    </div>
+</body>
+</html>
