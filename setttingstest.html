@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        button, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Settings</h2>
+        <button onclick="blankURL()">Blank URL</button>
+        <input type="text" id="titleInput" placeholder="Enter new tab title">
+        <button onclick="changeTitle()">Change Title</button>
+        <input type="text" id="iconInput" placeholder="Enter favicon URL">
+        <button onclick="changeFavicon()">Change Favicon</button>
+    </div>
+
+    <script>
+        function blankURL() {
+            history.pushState({}, "", "about:blank");
+        }
+
+        function changeTitle() {
+            const title = document.getElementById("titleInput").value;
+            document.title = title;
+        }
+
+        function changeFavicon() {
+            const iconURL = document.getElementById("iconInput").value;
+            let link = document.querySelector("link[rel~='icon']");
+            if (!link) {
+                link = document.createElement("link");
+                link.rel = "icon";
+                document.head.appendChild(link);
+            }
+            link.href = iconURL;
+        }
+    </script>
+</body>
+</html>
