@@ -86,34 +86,28 @@
 
     <button onclick="toggleContent()">Cloak</button>
 
-   <script>
-    let isCloaked = false; // Track the visibility state
+      <script>
+        let currentPart = 1; // Track the currently displayed part
 
-    function toggleContent() {
-        let part1 = document.getElementById("part1");
-        let part2 = document.getElementById("part2");
-        let button = document.querySelector("button");
-
-        if (!isCloaked) {
-            // Move part2 on top
-            part2.style.display = "block";
-            part2.style.zIndex = "5"; // Ensure it appears on top
-            part1.style.zIndex = "1"; // Move part1 behind
-            button.classList.add("invisible-background"); // Make button background invisible
-        } else {
-            // Move part1 back on top
-            part2.style.display = "none"; // Hide part2
-            part1.style.zIndex = "5"; // Move part1 back on top
-            part2.style.zIndex = "1"; // Lower part2 z-index
-            button.classList.remove("invisible-background"); // Restore button background
+        function toggleContent() {
+            if (currentPart === 1) {
+                // Switch to Part 2
+                document.getElementById("part1").style.display = "none";
+                document.getElementById("part2").style.display = "block";
+                document.querySelector("button").classList.add("invisible-background"); // Make button background invisible
+                currentPart = 2;
+            } else {
+                // Switch to Part 1
+                document.getElementById("part2").style.display = "none";
+                document.getElementById("part1").style.display = "block";
+                document.querySelector("button").classList.remove("invisible-background"); // Restore button background
+                currentPart = 1;
+            }
         }
 
-        isCloaked = !isCloaked; // Toggle state
-    }
-
-    // Show part1 by default
-    document.getElementById("part1").style.display = "block";
-</script>
+        // Show the first part by default when the page loads
+        document.getElementById("part1").style.display = "block";
+    </script>
 
 </body>
 </html>
