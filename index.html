@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique ID Checker</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        #content {
+            display: none; /* Hide content by default */
+            width: 100%;
+            height: 100%;
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #prompt {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        #idInput {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        #submitBtn {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #errorMsg {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay">
+        <div id="prompt">
+            <h2>Enter Your Unique ID</h2>
+            <input type="text" id="idInput" placeholder="Enter ID here">
+            <button id="submitBtn">Submit</button>
+            <p id="errorMsg">Invalid ID. Please try again.</p>
+        </div>
+    </div>
+
+    <div id="content">
+    <iframe src="https://tiredguy771.github.io/LandingPage/index.html"></iframe>
+
+    </div>
+
+    <script>
+        // List of encrypted IDs (using a simple encryption for demonstration)
+        const encryptedIds = [
+            'NzM2NDM=', // Encrypted '73643'
+            'OTg3NjU=', // Encrypted '98765'
+            'MTIzNDU='  // Encrypted '12345'
+        ];
+
+        // Simple encryption function (base64 encoding for demonstration)
+        function encrypt(text) {
+            return btoa(text);
+        }
+
+        // Function to check if the entered ID is valid
+        function isValidId(enteredId) {
+            const encryptedEnteredId = encrypt(enteredId);
+            return encryptedIds.includes(encryptedEnteredId);
+        }
+
+        // Function to handle ID submission
+        function handleSubmit() {
+            const enteredId = document.getElementById('idInput').value;
+            if (isValidId(enteredId)) {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('content').style.display = 'block'; // Show content
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+
+        // Add event listener to the submit button
+        document.getElementById('submitBtn').addEventListener('click', handleSubmit);
+
+        // Add event listener for Enter key in the input field
+        document.getElementById('idInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                handleSubmit();
+            }
+        });
+    </script>
+</body>
+</html>

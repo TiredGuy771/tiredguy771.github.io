@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle HTML Content with Iframes</title>
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f9;
+            position: relative;
+            overflow: hidden;
+            height: 100vh; /* Ensure the body takes the full height of the screen */
+        }
+
+        /* Styling for the button */
+        button {
+            position: fixed;
+            left: 20px; /* Distance from the left */
+            bottom: 20px; /* Distance from the bottom */
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+            z-index: 10; /* Make sure the button stays on top of the iframe */
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Invisible background when in Part 2 */
+        button.invisible-background {
+            background-color: transparent; 
+            color: #FFFFFF; 
+        }
+
+        /* Iframe Styling */
+        iframe {
+            width: 100%; /* Ensure iframe takes up the full width */
+            height: 100%; /* Ensure iframe takes up the full height */
+            border: none;
+            display: block; /* Remove any extra space below iframe */
+        }
+
+        /* Centering container for the content */
+        .content-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Hide content parts initially */
+        .content-part {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <div id="part1" class="content-part">
+            <iframe src="https://tiredguy771.github.io/ContentPage/index.html" id="iframe1"></iframe>
+        </div>
+
+        <div id="part2" class="content-part">
+            <iframe src="https://tiredguy771.github.io/GoogleAlt/index.html" id="iframe2"></iframe>
+        </div>
+    </div>
+
+    <button onclick="toggleContent()">Cloak</button>
+
+      <script>
+        let currentPart = 1; // Track the currently displayed part
+
+        function toggleContent() {
+            if (currentPart === 1) {
+                // Switch to Part 2
+                document.getElementById("part1").style.display = "none";
+                document.getElementById("part2").style.display = "block";
+                document.querySelector("button").classList.add("invisible-background"); // Make button background invisible
+                currentPart = 2;
+            } else {
+                // Switch to Part 1
+                document.getElementById("part2").style.display = "none";
+                document.getElementById("part1").style.display = "block";
+                document.querySelector("button").classList.remove("invisible-background"); // Restore button background
+                currentPart = 1;
+            }
+        }
+
+        // Show the first part by default when the page loads
+        document.getElementById("part1").style.display = "block";
+    </script>
+
+</body>
+</html>

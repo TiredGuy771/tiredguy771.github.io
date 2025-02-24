@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskbar with Iframes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+        }
+        .taskbar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .taskbar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+        }
+        .iframe-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            z-index: 999;
+        }
+        .iframe-container.active {
+            display: block;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="taskbar">
+        <button onclick="openIframe('games')">🎮</button>
+        <button onclick="openIframe('settings')">⚙️</button>
+        <button onclick="window.location.href='https://student.gmas.wa.edu.au'">🚪</button>
+    </div>
+    
+    <!-- Welcome Page (default page) -->
+    <div id="welcome" class="iframe-container active">
+        <iframe src="https://tiredguy771.github.io/Welcome/index.html"></iframe>  <!-- Change this to your actual welcome page URL -->
+    </div>
+    
+    <!-- Games Page -->
+    <div id="games" class="iframe-container">
+        <iframe src="https://tiredguy771.github.io/ContentPageWithCloaking/index.html"></iframe>  <!-- Change this to the URL for your games page -->
+    </div>
+    
+    <!-- Settings Page -->
+    <div id="settings" class="iframe-container">
+        <iframe src="https://tiredguy771.github.io/Settings/index.html"></iframe>  <!-- Change this to the URL for your settings page -->
+    </div>
+    
+    <script>
+        function openIframe(id) {
+            // Hide all iframe containers first
+            document.querySelectorAll('.iframe-container').forEach(el => el.classList.remove('active'));
+            
+            // Show the selected iframe container
+            document.getElementById(id).classList.add('active');
+        }
+
+        // Automatically open the 'welcome' iframe with a default URL when the page loads
+        window.onload = function() {
+            openIframe('welcome');  // Show the welcome page by default
+        };
+    </script>
+</body>
+</html>
