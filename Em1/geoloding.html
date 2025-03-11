@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+        .box{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(https://th.bing.com/th/id/R.1c87dc4999f9f6ec93ff225cd409e789?rik=p%2fs0dUncNRy22g&riu=http%3a%2f%2fpa1.narvii.com%2f6217%2f688cccdb8def03b39ccf11c06747ffeadabc2dc6_00.gif&ehk=2SNzUWKlFVPooBFBzef4Bx2NJNfY6U4RW5G1qofaJuc%3d&risl=&pid=ImgRaw&r=0);
+            width:50px;
+            height: 50px;
+            animation: box 2s infinite;
+            backdrop-filter:blur(2px);
+        }
+            .box1{
+             border: solid black;
+             width: 100px;
+             height: 100px;
+            }
+        
+        @keyframes box{
+            0%{
+                transform: translateX(0%)translateY(0%) rotate(0deg);  
+            }
+            25%{
+                transform: translateX(0%) translateY(100%) rotate(90deg);
+            }
+            50%{
+                transform: translateX(100%) translateY(100%) rotate(180deg);
+            }
+            75%{
+                transform: translateX(100%)translateY(0%)rotate(270deg);
+            }
+            100%{
+                transform: translateX(0%) translateY(0%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <div class="box1">
+    <div class="box">
+    </div>
+    </div>
+    <div class="h1">    <h1>loding...</h1>   </div> 
+</div>
+</body>
+</html>

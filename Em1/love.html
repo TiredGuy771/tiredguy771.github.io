@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I LOVE U</title>
+    <style>
+body{
+    display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+margin: 0;
+background-image: url(https://th.bing.com/th/id/R.99cfca75c7a3bf7b167eec55700a7968?rik=STxUbcod9F8%2fbA&riu=http%3a%2f%2fwallpapercave.com%2fwp%2ff7R1ZH3.jpg&ehk=Rccdr9b8E%2btcQso5VZqPCjvPFWDT9yYJB4859VNQWXo%3d&risl=&pid=ImgRaw&r=0);
+background-repeat: no-repeat;
+background-size: cover;
+}
+.button{
+    display: flex;
+align-items: center;
+justify-content: center;
+border: none;
+}
+.yes{
+    margin-right: 10px;
+    background-color: green;
+    font-weight: 800;
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+ border: none;
+}
+.no{
+background-color: red;
+font-weight: 800;
+border-radius: 5px;
+height: 40px;
+width: 100px;
+border: none;
+}
+.h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background:linear-gradient( 45deg,pink, red, pink);
+    height: 40px;
+    text-align:center;
+    color:black;
+    border-radius: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    
+}
+.h12{
+    border-radius: 20px;
+}
+.body{ 
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: solid black;
+    height: 300px;
+    border-radius: 10px;
+backdrop-filter: blur(7px);
+}
+.h1body{
+    border-radius: 20px;
+    margin-top: 7px;
+}
+.yes:hover{
+  background-color: rgb(4, 90, 4);
+}
+.no:hover{
+ background-color: rgb(121, 0, 0);
+}
+.img{
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+audio{
+    margin-bottom: 10px;
+    transform: translateY(50%);
+}
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="img">
+            <img src="https://th.bing.com/th/id/R.9dee6bd0f7d7d95c7a0002837bc1127d?rik=0gqQ1reh%2biNBOQ&pid=ImgRaw&r=0" width="170px" height="fit-content">
+       </div>
+            <div class="h1body">
+    <h1 class="h1">Will You Be My Valentine <code>&lt;3</code> </h1>
+    </div>
+    <div class="button">
+    <a href="#" ><button class="yes" onclick="alert('i love you')" > YES</button></a>
+    <a href="#"  ><button class="no" onclick="handleClick()" > NO</button></a>
+
+    </div>
+    <audio id="myAudio" src="./Fifty-Fifty-Cupid-Twin-Version-(Gospeljingle.com).mp3" autoplay controls ></audio>
+
+</div>
+
+<script>
+        let clickCount = 0;
+    function handleClick() {
+        clickCount++;
+        if (clickCount === 1) {
+            alert('ARE you sure that u wanna click no');
+        } else if (clickCount === 2) {
+            alert('Are u relly relly sure u wanna click no');
+        } else if (clickCount === 3) {
+            alert('pls stop clicking no');
+        } else if (clickCount === 4) {
+            alert('pls iam begging');
+        } else if (clickCount === 5) {
+            alert('bruhhhh plssssssssssssss')
+        }  else if (clickCount === 6) {
+            alert('if you click no one more time iam gonna cry');
+        } else if (clickCount === 7) {
+            alert('YOU made me sad');
+        } else if (clickCount === 8) {
+            alert('pls pls pls');
+        } else if (clickCount === 9) {
+            alert('i cant live without you');
+        }  else if (clickCount === 10) {
+            alert('pls your the most beutiful girl i ever seen');
+        } else if (clickCount === 11) {
+            alert('pls stop clicking no');
+        } else if (clickCount === 12) {
+            alert('pls iam begging');
+        } else if (clickCount === 13) {
+            alert('OK i acpect You dont like me U broke my heart');
+        } else if (clickCount === 14) {
+            window.location.href ='https://www.youtube.com/watch?v=L3ePYwgirfU';
+        }
+
+        
+
+    }
+        var audio = document.getElementById("myAudio");
+        audio.play();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+*{
+margin: 0;
+padding: 0;
+}
+body{
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  cursor: url(https://tse2.mm.bing.net/th/id/OIP.oQ0mPfX2LYndOG6S_k8A7wHaHa?rs=1&pid=ImgDetMain) 16 16, auto;
+    min-height: 100vh;
+    background-image: url(https://th.bing.com/th/id/R.0e3b8d7173ce679d76488a80a169a4dc?rik=%2fsEErfI%2fCkNUaQ&pid=ImgRaw&r=0);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+nav{
+  border: solid black;
+background-color: white;
+box-shadow: 3px 3px 3p rgba(0,0,0,0.3);
+}
+nav ul{
+
+width: 100%;
+list-style: none;
+display: flex;
+justify-content:flex-end;
+align-items: center;
+}
+nav li {
+height: 50px;
+}
+nav a {
+height: 100%;
+padding: 0 30px;
+text-decoration: none;
+display: flex;
+align-items: center;
+color: black;
+}
+nav a:hover{
+background-color: rgba(255, 255, 255, 0.637);
+}
+nav li:first-child{
+    margin-right: auto;
+}
+.Sidebar{
+    position: fixed;
+    top: 0;
+right: 0;
+height: 100vh;
+width: 250px;
+z-index: 999;
+background-color: rgba(255, 255, 255, 0.377);
+backdrop-filter: blur(10px);
+box-shadow: -10px 0 10px rgba(0,0,0,0.3);
+display: none;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+}
+.Sidebar li{
+width: 100%;
+}
+.Sidebar a{
+
+    width: 100%;
+}
+.menu-button{
+display: none;
+
+}
+
+
+@media(max-width:800px){
+.hideOnMobile{
+display: none;
+}
+.menu-button{
+
+    display: block;
+}
+}
+.bar{
+letter-spacing: 1px;
+border-radius: 25px 25px 25px;
+
+}
+
+
+
+.bar a:hover{
+    font-weight: 900;
+transition: 0.2s ease-in-out;
+background: #7171ee;
+box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+color: beige;
+border-radius: 25px 25px 25px;
+margin-top: 2px;
+height: 90%;
+}
+
+@media(max-width:400px){
+.SideBar{
+width: 100%;
+
+}
+
+
+}
+.imgcon:hover{
+box-shadow: 2px 2px 30px rgba(255, 255, 255, 0.637);
+
+
+}
+.imgcon{
+border: 2px solid white;
+margin-top: 20px;
+margin-left: 20px;
+  margin-right: auto;
+  width: 40%;
+  border-radius: 25px;
+  background-color: grey;
+}
+.img1{
+    height: fit-content;
+    margin-top:20px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-bottom: 10px;
+  border-radius: 25px;
+}
+.img2{
+    height: fit-content;
+    margin-top:20px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-bottom:0px;
+  border-radius: 25px;
+}
+.cartag{
+    margin-top: 2rem;
+    margin-left: 8%;
+  margin-right: auto;
+font-weight: 900;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.carinfo{
+    margin-top: 2px;
+    margin-left: 8%;
+  margin-right: auto;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.carprice{
+    height: 20px;
+background-color: rgba(255, 255, 255, 0.671);
+border-radius: 5px;
+width: 27%;
+margin-top: 20px;
+margin-left: 8%;
+margin-bottom: 10px;
+text-align: center;
+float: left;
+}
+.carrate{
+    height: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.671);
+border-radius: 5px;
+width: 20%;
+margin-top: 20px;
+margin-left:0;
+margin-bottom: 10px;
+margin-right: 8%;
+float: right;
+}
+.nocar{
+    opacity: 0%;
+}
+.carflex{
+display: flex;
+
+}
+.info{
+margin-top: 20px;
+}
+
+li{
+  list-style-type: none;
+
+}
+.proxya
+{
+  
+  letter-spacing: 1px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+  box-shadow: 2px 2px 40px rgba(0,0,0,0.3) ;
+  color: beige;
+  border-radius: 5px;
+border: solid white;
+  font-size: x-large;
+  text-decoration: none;
+  text-align: center;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.proxy{
+  margin-top: 10px;
+  margin-bottom: 10px;
+   background-color: #7171ee;
+   width: fit-content;
+   border-radius: 5px;
+}
+
+.proxya:hover{
+  text-decoration: underline;
+    color: black;
+background-color: #ffffff;
+border-radius: 10px;
+filter: blur(0px);
+opacity: 100%;
+transition: 0.3s ease-in;
+}
+
+
+.contaner{
+  
+  margin-left: 1rem;
+}
+
+.myid{
+  justify-content: center;
+  display: flex;
+  text-align: center;
+background-color: bisque;
+}
+.myida{
+text-decoration: none;
+color: black;
+width: 4%;
+}
+footer{
+  height:fit-content;
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  color: #333;
+  
+  padding: 10px;
+  justify-content: space-around;
+}
+.footera{
+  text-decoration: none;
+  color: black;
+}
+.admin{
+display: flex;
+  box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+  border-radius: 30px;
+  margin-top: 1rem;
+  background-color: #ffffff;
+  height:fit-content;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  border: solid rgb(0, 0, 0);
+}
+.adminp{
+border-radius: 25px 25px 0px 0px;
+background-color: grey;
+font-size: 25px;
+}
+.adminp2{
+margin-bottom: 10px;
+margin-top: 10px;
+}
+.admina{
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: 2px 2px 40px rgba(0,0,0,0.3) ;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+border: solid white;
+  font-size: x-large;
+  text-decoration: none;
+  text-align: center;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.admina:hover{
+  transform: scale(1.5); 
+}
+.adminp3{
+  margin-top: 10px;
+
+}
+.panic{
+  text-decoration: none;
+}
+.newsimg{
+border: solid black;
+
+}
+.flexdiv{
+display: flex;
+animation: flexdiv  1s forwards ;
+
+}
+.sidediv{
+
+  margin-left: 10px;
+  margin-top: 10px;
+background-color: rgb(209, 209, 209);
+height: fit-content;
+border-radius: 22px;
+border: solid black;
+box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+width: fit-content;
+}
+.sidetext{
+  font-family:cursive;
+margin-left: 10px;
+margin-right: 10px;
+margin-bottom: 10px;
+}
+@keyframes flexdiv{
+            0%{
+                transform: translateY(100%);
+                opacity: 0%;
+            }
+
+            100%{
+                transform: translateY(0%);
+                opacity: 100%;
+            }
+        }
+</style>
+ 
+
+
+
+
+
+</head>
+<body>
+    <nav>
+       
+<ul class="bar">
+<li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="70" width="40" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg> NEWXY HUB</a></li>
+<li class="hideOnMobile"><a href="index.html">home</a></li>
+<li class="hideOnMobile"><a href="https://beastacademy.gq/">proxy</a></li>
+<li class="hideOnMobile"><a href="rule.html">Rules</a></li>
+<li class="hideOnMobile"><a href="about.html">about us</a></li>
+<li class="hideOnMobile"><a href="note.html">Note</a></li>
+<li class="menu-button"   onclick=showSidebar()><a><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+</ul>
+<ul class="Sidebar">
+    <li onclick=hideSidebar()><a ><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+    <li><a href="index.html">home</a></li>
+    <li><a href="https://beastacademy.gq/">proxy</a></li>
+    <li><a href="rule.html">rules</a></li>
+    <li><a href="about.html">about us</a></li>
+    <li><a href="note.html">note</a></li>
+
+    </ul>
+    </nav>
+
+
+
+<div class="flexdiv">
+<div class="contaner">
+  <li>
+     <div class="proxy">
+
+<a class="proxya" href="https://docs.google.com/forms/d/e/1FAIpQLSe_vhlimfNgD84cdxgjSl_WT-yMgZn0fX9SmysFmo_dOgjhaw/viewform">google form</a>
+
+</div>
+    <div class="proxy">
+ <a class="proxya" href="https://prakashnewxy.github.io/ubgames/">ubg games</a>
+
+</div>
+    <div class="proxy">
+        <a class="proxya" href="https://prakashnewxy.github.io/monkey/">monkey games</a>
+    </div>
+<div class="proxy">
+
+<a class="proxya" href="https://prakashnewxy.github.io/NEWXYGMAESuwu/">UwU games</a>
+
+</div>
+<div class="proxy">
+
+<a class="proxya" href="https://prakashnewxy.github.io/proxyhack/">cave games</a>
+
+</div>
+<div class="proxy">
+
+<a class="proxya" href="https://newxyhub.chatango.com/">CHAT</a>
+
+</div>
+<div class="proxy">
+
+<a class="proxya"  href="https://prakashnewxy.github.io/unbl0ck.github.io/index.html">games</a>
+
+</div>
+<div class="proxy">
+
+<a class="proxya" href="https://prakashnewxy.github.io/NewxyHub/">MacVg</a>
+
+</div>
+    <div class="proxy">
+
+<a class="proxya" href="https://prakashnewxy.github.io/ubgok/index.html">games</a> 
+
+</div>
+<div class="proxy">
+<a class="proxya" href="https://astroid.tlochsta.cloud/">unblocker</a>
+</div>
+
+    <div class="proxy">
+<a class="proxya" href="https://prakashnewxy.github.io/koko/">koko games</a>
+</div>
+      <div class="proxy">
+<a class="proxya" href="https://prakashnewxy.github.io/mathgames66/">mathgame66</a>
+</div>
+    <div class="proxy">
+        <a class="proxya" href="https://prakashnewxy.github.io/themesacomplex/">games</a>
+    </div>
+ 
+      
+  </li>
+    </div>
+    <div class="hideOnMobile">
+    <div class="sidediv">
+      <div class="sidetext">
+    
+  <h1>Daily MEMES</h1>
+    <p> <img src="https://sayingimages.com/wp-content/uploads/funny-school-dear-teacher-memes.jpg" width="400px" height="fit-content"> </p>
+    <h1></h1>
+    <P></P>
+    <p></P>
+    </div>
+  </div>
+  </div>
+  <div class="hideOnMobile">
+    <div class="sidediv">
+      <div class="sidetext">
+    
+<h1>Daily NEWS</h1>
+    <p>Update 3 is out!</p>
+    <h1>whats new</h1>
+    <P>JUST little bit of change not that much</P>
+    <p>SORRY for not Updateing I was busy with other works</p>
+      <h1>our patners</h1>
+      <p>JNT_network and DUM DUM censorship and my own</p>
+      <a class="" href="https://docs.google.com/document/d/1LEbow_IJ8Q6yNqGo3tORwLkaRnEt9NQ285H28KoGWlc/preview#heading=h.ulebw51p75b8" ><button>JNT</button></a>
+      <a class="" href="https://docs.google.com/document/d/1fybE49es_jt61A4SxWOmX1RQSJulSYjxwZNsHkl72W8/preview" ><button>DUM DUM</button></a>
+      <a class="" href="https://docs.google.com/document/d/1QxgRyKgH0wV5PfMz3gWk-w4RhSlr0DazllUj_YM6nnc/preview#heading=h.awi03erlg5by" ><button>Newxy Hub</button></a>
+
+      <h1>send this to someone u love in feb:14</h1>
+      <a href="love.html"><button>send</button></a>
+      <h1>thanks for supporting my webpage thank u all!!</h1>
+      <img src="./like.png" width="400px" height="fit-content">
+    </div>
+  </div>
+ </div>
+</div>
+       
+    <script>
+
+
+
+
+
+
+
+
+function showSidebar() {
+    const sidebar = document.querySelector('.Sidebar');
+    sidebar.style.display = 'flex';
+}
+
+function hideSidebar() {
+    const sidebar = document.querySelector('.Sidebar');
+    sidebar.style.display = 'none';
+}
+
+   document.addEventListener('keydown', function(event) {
+  if (event.shiftKey && event.keyCode === 121) {
+    window.location.href = 'https://lms.fcps.edu/home';
+  } else if (event.keyCode === 27) {
+    event.preventDefault();
+  }
+});
+          // This function searches for the text input in the document and highlights the matches
+          function search() {
+            // Get the text input from the form element
+            var input = document.getElementById("search-input").value;
+            // Create a regular expression object with the input and the global and case-insensitive flags
+            var regex = new RegExp(input, "gi");
+            // Get the body element of the document
+            var body = document.body;
+            // Remove any previous highlights
+            body.innerHTML = body.innerHTML.replace(/<mark>(.*?)<\/mark>/g, "$1");
+            // Replace the matches with the same text wrapped in a <mark> element
+            body.innerHTML = body.innerHTML.replace(regex, "<mark>$&</mark>");
+          }
+
+
+
+          // Get the textarea element
+var textarea = document.getElementById("textarea");
+// Get the status element
+var status = document.getElementById("status");
+// Get the saved text from local storage
+var savedText = localStorage.getItem("text");
+// If there is any saved text, set it as the textarea value
+if (savedText) {
+  textarea.value = savedText;
+}
+// Define a save function
+function save() {
+  // Save the textarea value to local storage
+  localStorage.setItem("text", textarea.value);
+  // Update the status element
+  status.textContent = "Saved";
+}
+// Define a timeout variable
+var timeout;
+// Add an input event listener to the textarea
+textarea.addEventListener("input", function() {
+  // Update the status element
+  status.textContent = "Unsaved changes";
+  // Clear the previous timeout
+  clearTimeout(timeout);
+  // Set a new timeout to save after 1 second
+  timeout = setTimeout(save, 1000);
+});
+// Get the elements from the document
+const noteForm = document.getElementById("note-form");
+const noteTitle = document.getElementById("note-title");
+const noteContent = document.getElementById("note-content");
+const noteList = document.getElementById("note-list");
+
+// Create an array to store the notes
+let notes = [];
+
+// Load the notes from the local storage
+function loadNotes() {
+  // Get the notes from the local storage
+  let storedNotes = localStorage.getItem("notes");
+  // Parse the JSON string into an array
+  if (storedNotes) {
+    notes = JSON.parse(storedNotes);
+  }
+  // Display the notes on the page
+  displayNotes();
+}
+
+// Display the notes on the page
+function displayNotes() {
+  // Clear the note list
+  noteList.innerHTML = "";
+  // Loop through the notes array
+  for (let i = 0; i < notes.length; i++) {
+    // Get the note object
+    let note = notes[i];
+    // Create a div element for the note
+    let noteDiv = document.createElement("div");
+    // Add a class name to the note div
+    noteDiv.className = "note";
+    // Set the inner HTML of the note div
+    noteDiv.innerHTML = `
+      <h3>${note.title}</h3>
+      <p>${note.content}</p>
+      <button onclick="deleteNote(${i})">Delete</button>
+    `;
+    // Append the note div to the note list
+    noteList.appendChild(noteDiv);
+  }
+}
+
+// Save a note to the local storage
+function saveNote() {
+  // Get the values from the input fields
+  let title = noteTitle.value;
+  let content = noteContent.value;
+  // Create a note object
+  let note = {
+    title: title,
+    content: content
+  };
+  // Add the note to the notes array
+  notes.push(note);
+  // Save the notes array to the local storage
+  localStorage.setItem("notes", JSON.stringify(notes));
+  // Display the notes on the page
+  displayNotes();
+  // Clear the input fields
+  noteTitle.value = "";
+  noteContent.value = "";
+}
+
+// Delete a note from the local storage
+function deleteNote(index) {
+  // Remove the note from the notes array
+  notes.splice(index, 1);
+  // Save the notes array to the local storage
+  localStorage.setItem("notes", JSON.stringify(notes));
+  // Display the notes on the page
+  displayNotes();
+}
+
+// Add an event listener to the note form
+noteForm.addEventListener("submit", function(event) {
+  // Prevent the default behavior of the form
+  event.preventDefault();
+  // Save the note
+  saveNote();
+});
+
+// Load the notes when the page loads
+loadNotes();
+
+function addSearchFunctionality() {
+  // Check if the current website is Newxy
+  if (window.location.hostname === 'prakashnewxy.github.io') {
+    // Get the search bar element by its id
+    const searchBar = document.getElementById('search-bar');
+    // Add event listener to handle search input
+    searchBar.addEventListener('input', handleSearch);
+  } else {
+    // Display error message if executed on any other site
+    console.log('Er--RRR0r Newxy n-not de-teccct3d');
+  }
+}
+
+function handleSearch(event) {
+  const searchQuery = event.target.value.toLowerCase();
+  // Perform search logic here and display the closest matching item
+  // based on the search query
+  // Use fetch or axios to make an HTTP request to Newxy's API
+  // Example: fetch(`https://api.newxy.com/search?q=${searchQuery}`)
+  // Then parse the response and display the results
+  // ...
+}
+
+// Call the method to add search functionality to the website
+addSearchFunctionality();
+
+        document.body.style.overflow = 'hidden';
+
+var myWindow = window.open("", "", "width=200,height=100");
+// Change the URL without reloading the page
+window.history.replaceState({}, "", "/new-url");
+
+function changeURL() {
+  window.history.replaceState(null, null, "about:blank");
+}
+      
+        (function () {var url = prompt("", ""); var urlObj = new window.URL(window.location.href); win = window.open(); win.document.body.style.margin = "0"; win.document.body.style.height = "100vh"; var iframe = win.document.createElement("iframe"); iframe.style.border = "none"; iframe.style.width = "100%"; iframe.style.height = "100%"; iframe.style.margin = "0"; iframe.referrerpolicy = "no-referrer"; iframe.allow = "fullscreen"; iframe.src = url.toString(); win.document.body.appendChild(iframe); var script = win.document.createElement("script"); script.src = "https://3kh0.github.io/js/main.js"; win.document.body.appendChild(script); })();
+          </script>
+        
+    
+   
+
+          
+</body>
+</html>

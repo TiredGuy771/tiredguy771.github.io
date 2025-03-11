@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; text-align: center; padding: 50px; }
+        #word { font-size: 2em; margin-top: 20px; }
+        #guesses { margin-top: 20px; }
+        .guessed { text-decoration: line-through; }
+        #wordInput, button { padding: 20px; font-size: 1.2em; width: 200px; }
+        button { background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #hangman { margin-top: 20px; }
+        .letter { padding: 10px; font-size: 1.2em; border: 1px solid #007BFF; border-radius: 5px; cursor: pointer; display: inline-block; margin: 2px; }
+        .letter:hover { background-color: #007BFF; color: white; }
+        #message { font-size: 1.5em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div id="inputArea">
+        <input id="wordInput" type="text" placeholder="Enter a word">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <div id="hangman">🙂</div>
+    <div id="word"></div>
+    <div id="guesses"></div>
+    <div id="message"></div>
+    <button id="restartButton" onclick="location.reload()" style="display: none;">Restart Game</button>
+
+    <script>
+        let word = [];
+        let guesses = [];
+        let hangman = ['🙂', '😐', '😦', '😧', '😨', '😰', '😱'];
+        let gameStarted = false;
+
+        function startGame() {
+            word = document.getElementById('wordInput').value.toUpperCase().split('');
+            document.getElementById('wordInput').value = '';
+            document.getElementById('inputArea').style.display = 'none';
+            guesses = [];
+            gameStarted = true;
+            updateDisplay();
+        }
+
+        function guess(letter) {
+            if (!guesses.includes(letter)) {
+                guesses.push(letter);
+                if (!word.includes(letter)) {
+                    hangman.shift();
+                    if (hangman.length === 0) {
+                        document.getElementById('message').innerText = 'YOU lose! The answer was ' + word.join('');
+                        document.getElementById('restartButton').style.display = 'block';
+                        gameStarted = false;
+                    } else {
+                        document.getElementById('hangman').innerText = hangman[0];
+                    }
+                } else if (!word.some(letter => !guesses.includes(letter))) {
+                    document.getElementById('message').innerText = 'YOU win! Congratulations!';
+                    document.getElementById('restartButton').style.display = 'block';
+                    gameStarted = false;
+                }
+                updateDisplay();
+            }
+        }
+
+        function updateDisplay() {
+            let displayWord = word.map(letter => guesses.includes(letter) ? letter : '_').join(' ');
+            document.getElementById('word').innerText = displayWord;
+
+            let displayGuesses = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_'.split('').map(letter => 
+                guesses.includes(letter) ? `<span class="guessed">${letter === '_' ? ' ' : letter}</span>` : `<span class="letter" onclick="guess('${letter}')">${letter === '_' ? ' ' : letter}</span>`
+            ).join(' ');
+            document.getElementById('guesses').innerHTML = displayGuesses;
+        }
+
+        window.addEventListener('keydown', function(e) {
+            if (gameStarted && ((e.keyCode >= 65 && e.keyCode <= 90) || e.keyCode == 32)) { // A-Z and space
+                guess(String.fromCharCode(e.keyCode));
+            }
+        });
+    </script>
+</body>
+</html>

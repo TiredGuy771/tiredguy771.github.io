@@ -1,0 +1,229 @@
+<html>
+<head>
+  <title>Note App</title>
+  <style>
+   /* Add some CSS code here */
+
+/* Set the font and background color */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Style the navigation bar */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333333;
+  color: white;
+}
+
+/* Style the logo */
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Style the navigation links */
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Style the main content */
+main {
+  display: flex;
+  margin: 20px;
+}
+
+/* Style the sidebar */
+aside {
+  width: 200px;
+  border-right: 1px solid #cccccc;
+  padding: 10px;
+}
+
+aside ul {
+  list-style: none;
+}
+
+aside ul li {
+  margin: 10px 0;
+}
+
+aside ul li ul {
+  margin-left: 20px;
+}
+
+/* Style the notes section */
+section.notes {
+  flex: 1;
+  padding: 10px;
+}
+
+section.notes h2 {
+  margin-bottom: 20px;
+}
+
+/* Style the note div */
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.note h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.note p {
+  font-size: 14px;
+  color: #3f3f3f;
+}
+
+/* Style the input and textarea fields */
+#note-title, #note-content {
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#note-content {
+  height: 200px;
+  resize: none;
+}
+
+/* Style the add note button */
+#add-note {
+  width: 100%;
+  height: 40px;
+  background-color: #333333;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Note App</h1>
+    <form id="note-form">
+      <input type="text" id="note-title" placeholder="Enter note title" required>
+      <textarea id="note-content" placeholder="Enter note content" required></textarea>
+      <button id="save-note">Save Note</button>
+    </form>
+    <div id="note-list">
+      <!-- Display notes here -->
+    </div>
+  </div>
+  <script>
+  // Get the elements from the document
+const noteForm = document.getElementById("note-form");
+const noteTitle = document.getElementById("note-title");
+const noteContent = document.getElementById("note-content");
+const noteList = document.getElementById("note-list");
+
+// Create an array to store the notes
+let notes = [];
+
+// Load the notes from the local storage
+function loadNotes() {
+  // Get the notes from the local storage
+  let storedNotes = localStorage.getItem("notes");
+  // Parse the JSON string into an array
+  if (storedNotes) {
+    notes = JSON.parse(storedNotes);
+  }
+  // Display the notes on the page
+  displayNotes();
+}
+
+// Display the notes on the page
+function displayNotes() {
+  // Clear the note list
+  noteList.innerHTML = "";
+  // Loop through the notes array
+  for (let i = 0; i < notes.length; i++) {
+    // Get the note object
+    let note = notes[i];
+    // Create a div element for the note
+    let noteDiv = document.createElement("div");
+    // Add a class name to the note div
+    noteDiv.className = "note";
+    // Set the inner HTML of the note div
+    noteDiv.innerHTML = `
+      <h3>${note.title}</h3>
+      <p>${note.content}</p>
+      <button onclick="deleteNote(${i})">Delete</button>
+    `;
+    // Append the note div to the note list
+    noteList.appendChild(noteDiv);
+  }
+}
+
+// Save a note to the local storage
+function saveNote() {
+  // Get the values from the input fields
+  let title = noteTitle.value;
+  let content = noteContent.value;
+  // Create a note object
+  let note = {
+    title: title,
+    content: content
+  };
+  // Add the note to the notes array
+  notes.push(note);
+  // Save the notes array to the local storage
+  localStorage.setItem("notes", JSON.stringify(notes));
+  // Display the notes on the page
+  displayNotes();
+  // Clear the input fields
+  noteTitle.value = "";
+  noteContent.value = "";
+}
+
+// Delete a note from the local storage
+function deleteNote(index) {
+  // Remove the note from the notes array
+  notes.splice(index, 1);
+  // Save the notes array to the local storage
+  localStorage.setItem("notes", JSON.stringify(notes));
+  // Display the notes on the page
+  displayNotes();
+}
+
+// Add an event listener to the note form
+noteForm.addEventListener("submit", function(event) {
+  // Prevent the default behavior of the form
+  event.preventDefault();
+  // Save the note
+  saveNote();
+});
+
+// Load the notes when the page loads
+loadNotes();
+
+  </script>
+</body>
+</html>
+
